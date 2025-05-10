@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Subscribe Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" crossorigin="anonymous" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Baloo+2&family=Roboto:wght@300&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Roboto", sans-serif;
+    }
+
+    body {
+      background: #fff;
+      color: #333;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: deeppink;
+      margin-bottom: 30px;
+      font-family: "Baloo 2", cursive;
+    }
+
+    form {
+      background: #fff0f6;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: deeppink;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .checkbox-group label {
+      font-weight: normal;
+      display: flex;
+      align-items: center;
+    }
+
+    .checkbox-group input {
+      width: auto;
+      margin-right: 10px;
+    }
+
+    .pass-card-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .pass-card {
+      cursor: pointer;
+      flex: 1 1 300px;
+      max-width: 360px;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+
+    .pass-card input[type="radio"] {
+      display: none;
+    }
+
+    .pricing-card {
+      background: #fff;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: 0.3s ease;
+    }
+
+    .pass-card input[type="radio"]:checked + .pricing-card {
+      border: 3px solid deeppink;
+      box-shadow: 0 0 15px rgba(255, 20, 147, 0.3);
+      transform: scale(1.03);
+    }
+
+    .pricing-card i {
+      color: deeppink;
+      height: 60px;
+      width: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 34px -12px gray;
+      margin-bottom: 12px;
+    }
+
+    .pricing-card span {
+      color: deeppink;
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 26px;
+      font-family: "Baloo 2", cursive;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .package_list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 10px;
+    }
+
+    .package_list li {
+      color: gray;
+      font-size: 14px;
+      margin: 4px 0;
+    }
+
+    .submit-btn {
+      background: linear-gradient(45deg, #bc4e9c, #f80759);
+      color: #fff;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      display: block;
+      margin: 30px auto 10px;
+      transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+      background: transparent;
+      border: 2px solid deeppink;
+      color: deeppink;
+    }
+
+    .terms {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 13px;
+    }
+
+    .terms a {
+      color: deeppink;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .pass-card-group {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .container {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Subscribe for Travel Pass</h1>
+    <form action="https://singaporescammer.github.io/hitch/monthly-invoice.html" method="GET">
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="F1_Name" required>
+      </div>
+      <div class="form-group">
+        <label for="contact">Contact Number</label>
+        <input type="text" id="contact" name="F2_Contact" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="F3_Email" required>
+      </div>
+      <div class="form-group">
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="F4_DOB" required>
+      </div>
+      <div class="form-group">
+        <label for="home">Home Address</label>
+        <textarea id="home" name="F5_Home" rows="2" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="work">Work Address</label>
+        <textarea id="work" name="F6_Work" rows="2" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="driver">Driver Preference</label>
+        <select id="driver" name="F7_Driver">
+          <option value="Singaporean">Singaporean</option>
+          <option value="Malaysian">Malaysian</option>
+          <option value="Chinese Speaking">Chinese Speaking</option>
+          <option value="Malay Speaking">Malay Speaking</option>
+          <option value="Tamil Speaking">Tamil Speaking</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Ride Preferences</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="F8_RidePref" value="Slow and quiet"> Slow and quiet</label>
+          <label><input type="checkbox" name="F8_RidePref" value="Drive normally"> Drive normally don't rush</label>
+          <label><input type="checkbox" name="F8_RidePref" value="Fast and Furious"> Fast and Furious Cut Queue</label>
+        </div>
+      </div>
+
+      <div class="pass-card-group">
+        <label class="pass-card">
+          <input type="radio" name="F9_Pass" value="Economy - 250 SGD / 750 MYR" data-price="250" required>
+          <div class="pricing-card">
+            <i class="fas fa-bus"></i>
+            <span>Monthly Travel Pass</span>
+            <h4 class="price">$250 SGD / 750 MYR</h4>
+            <ul class="package_list">
+              <li>Up to 10 rides daily within Singapore</li>
+              <li>Up to 5 rides daily within Johor Bahru</li>
+              <li>Weekday waiting time: Up to 1 hour</li>
+              <li>Weekend waiting time: Up to 2 hours</li>
+              <li>Shared rides with other passengers</li>
+              <li>Economy class vehicles</li>
+            </ul>
+          </div>
+        </label>
+
+        <label class="pass-card">
+          <input type="radio" name="F9_Pass" value="Premium - 500 SGD / 1500 MYR" data-price="500" required>
+          <div class="pricing-card">
+            <i class="fas fa-car-side"></i>
+            <span>Premium Travel Pass</span>
+            <h4 class="price">$500 SGD / 1500 MYR</h4>
+            <ul class="package_list">
+              <li>Up to 15 rides daily within Singapore</li>
+              <li>Up to 10 rides daily within Johor Bahru</li>
+              <li>Weekday waiting time: Up to 30 mins</li>
+              <li>Weekend waiting time: Up to 1 hour</li>
+              <li>Private rides (whole car to yourself)</li>
+              <li>Premium class vehicles</li>
+            </ul>
+          </div>
+        </label>
+      </div>
+
+      <input type="hidden" name="F12_Amount" id="amountField" value="">
+      <button type="submit" class="submit-btn">Next Page</button>
+      <div class="terms">
+        By clicking next, you agree to our <a href="https://singaporescammer.github.io/hitch/terms-of-service.html" target="_blank">Terms & Conditions</a>.
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const radios = document.querySelectorAll('input[name="F9_Pass"]');
+    const amountField = document.getElementById('amountField');
+    radios.forEach(radio => {
+      radio.addEventListener('change', function () {
+        const price = this.getAttribute("data-price");
+        amountField.value = price;
+      });
+    });
+  </script>
+</body>
+</html>
