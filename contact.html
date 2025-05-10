@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | Singxsavor</title>
+  <meta name="description" content="Get in touch with Singasavor for transport, booking, complaints, or general enquiries. Serving Singapore & Malaysia." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://singaporescammer.github.io/hitch/contact-us.html" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Contact Us | Singxsavor" />
+  <meta property="og:description" content="Need help? Contact Singxsavor for bookings, feedback, or transport enquiries. Safe, fast & professional." />
+  <meta property="og:image" content="https://singaporescammer.github.io/hitch/assets/contact-preview.png" />
+  <meta property="og:url" content="https://singaporescammer.github.io/hitch/contact-us.html" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact Us | Singxsavor" />
+  <meta name="twitter:description" content="Reach Singxsavor customer support or make a booking enquiry today." />
+  <meta name="twitter:image" content="https://singaporescammer.github.io/hitch/assets/contact-preview.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://singaporescammer.github.io/hitch/assets/favicon.ico" type="image/x-icon">
+
+ <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0a1a2f, #122b48);
+      color: #fff;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    .navbar {
+      background: #0a1a2f;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      width: 100%;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0%;
+      height: 2px;
+      background: #00bfff;
+      transition: 0.3s ease-in-out;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .menu-btn {
+      display: none;
+      cursor: pointer;
+      font-size: 1.8rem;
+      color: white;
+    }
+
+    .contact-wrapper {
+      display: flex;
+      justify-content: center;
+      padding: 40px 15px;
+      width: 100%;
+    }
+
+    .contact-container {
+      width: 100%;
+      max-width: 1200px;
+      background: #10253f;
+      padding: 40px 5vw;
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(0, 191, 255, 0.2);
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #00bfff;
+      font-size: 28px;
+      margin-bottom: 25px;
+      text-shadow: 0 0 8px rgba(0, 191, 255, 0.6);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+    }
+
+    input, textarea, select {
+      background: #0d1b2f;
+      color: #fff;
+      padding: 14px 16px;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      font-size: 16px;
+      width: 100%;
+      transition: all 0.3s ease;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: #00bfff;
+      box-shadow: 0 0 8px rgba(0, 191, 255, 0.6);
+      outline: none;
+    }
+
+    button {
+      background: linear-gradient(135deg, #007acc, #00bfff);
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 50px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0, 191, 255, 0.3);
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #0099ff, #33ccff);
+      transform: scale(1.03);
+    }
+
+    iframe {
+      width: 100%;
+      height: 50vh;
+      border: none;
+      border-radius: 16px;
+      margin-top: 20px;
+    }
+
+    .floating-buttons {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 9999;
+    }
+
+    .floating-buttons a {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #00bfff;
+      box-shadow: 0 6px 18px rgba(0, 191, 255, 0.4);
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .floating-buttons a:hover {
+      background: #33ccff;
+      transform: scale(1.1);
+    }
+
+    .floating-buttons img {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+    }
+
+    .faq-section {
+      margin-top: 60px;
+    }
+
+    .faq-section details {
+      background: #0d1b2f;
+      border: 1px solid #00bfff;
+      padding: 20px 22px;
+      margin-bottom: 18px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .faq-section details:hover {
+      box-shadow: 0 0 12px rgba(0, 191, 255, 0.4);
+      border-color: #33ccff;
+    }
+
+    .faq-section summary {
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 18px;
+      color: #00c8ff;
+      padding-left: 22px;
+      list-style: none;
+      position: relative;
+    }
+
+    .faq-section summary::before {
+      content: "▼";
+      position: absolute;
+      left: 0;
+      transition: transform 0.3s ease;
+      color: #00c8ff;
+    }
+
+    .faq-section details[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .faq-section p {
+      margin-top: 12px;
+      line-height: 1.8;
+      color: #e0e0e0;
+      font-size: 15.5px;
+      padding-left: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        background: #0a1a2f;
+        display: none;
+        padding: 1rem;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      h1, h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+ </head>
+ <body>
+  <nav class="navbar">
+    <div class="menu-btn" onclick="document.getElementById('navMenu').classList.toggle('active')">☰</div>
+    <ul class="nav-links" id="navMenu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="carpool.html">Booking</a></li>
+      <li><a href="monthly-pass.html">Monthly Pass</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+ <div class="contact-wrapper">
+    <div class="contact-container">
+      <h2>Contact Us</h2>
+      <form action="https://formsubmit.co/endgameis21@hotmail.com" method="POST">
+        <select name="subject" required>
+          <option disabled selected value="">Select a Subject</option>
+          <option value="Enquiries">Enquiries</option>
+          <option value="Tracking">Tracking</option>
+          <option value="Complaints">Complaints</option>
+          <option value="Feedback">Feedback</option>
+        </select>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="tel" name="phone" placeholder="Contact Number" required>
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+
+   <h2 style="margin-top: 50px;">
+    📍 Location: 865 Mountbatten Rd, #02-26 Katong Shopping Centre, Singapore 437844
+   </h2>
+   <iframe allowfullscreen="" height="300" loading="lazy" src="https://www.google.com/maps?q=865%20Mountbatten%20Rd%20%2302-26%2C%20Singapore%20437844&amp;output=embed" style="border:0; border-radius: 16px; margin-top: 20px;" width="100%">
+   </iframe>
+   <div style="margin-top: 30px;">
+        <p><strong>Facebook Group:</strong> <a href="https://www.facebook.com/groups/1700217860387535" style="color:#33ccff;" target="_blank">Join Here</a></p>
+        <p><strong>Instagram:</strong> <a href="https://www.instagram.com/cryptosgpay" style="color:#33ccff;" target="_blank">Cryptosgpay</a></p>
+        <p><strong>Email:</strong> <a href="mailto:corporate@singxsavor.com" style="color:#33ccff;">corporate@singxsavor.com</a></p>
+        <p><strong>Contact:</strong> +601158668656</p>
+      </div>
+
+      <h2 style="margin-top: 50px;">About Singxsavor</h2>
+      <p style="line-height: 1.6;">
+        <strong>Singxsavor</strong> is a multi-service booking platform connecting users to licensed providers across Singapore and Malaysia. We help you arrange transport, moving, events, accommodation, and more—quickly and securely.
+        <br>All bookings are handled by verified partners. Payments are processed securely via <strong>Cryptosgpay</strong>.
+      </p>
+
+      <p><a href="https://singaporescammer.github.io/hitch/terms-of-service.html" style="color:#33ccff;">Terms of Service, Privacy Policy & Disclaimer</a></p>
+
+      <h2 style="margin-top: 50px;">Frequently Asked Questions (FAQ)</h2>
+      <div class="faq-section">
+        <details><summary>Do you provide JB to Singapore transfers?</summary><p>Yes, we do. Share your pickup location and hotel info for accurate pricing.</p></details>
+        <details><summary>Do you offer transport from Singapore to JB?</summary><p>Yes, we offer home pickups to JB with smooth and safe rides.</p></details>
+        <details><summary>How does the Monthly Cross-Border Pass work?</summary><p>$250/month for up to 3 round trips daily between SG and JB.</p></details>
+        <details><summary>Do you offer moving services between Singapore and Johor?</summary><p>Yes. $30 within SG, $50 to Johor. Share item details for quote.</p></details>
+        <details><summary>Can students living in JB enroll in the bus service?</summary><p>Yes. Our $250/month pass is ideal for daily cross-border school commutes.</p></details>
+        <details><summary>Are your vehicles and drivers licensed and insured?</summary><p>Yes. LTA-approved vehicles, insured, with licensed vocational drivers.</p></details>
+        <details><summary>What is Singxsavor?</summary><p>A booking platform with verified partners across SG & MY, powered by Cryptosgpay.</p></details>
+      </div>
+    </div>
+  </div>
+ <!-- Floating Buttons -->
+ <div class="floating-buttons">
+    <a href="https://wa.me/+601158668656" target="_blank"><img src="https://singaporescammer.github.io/hitch/assets/WhatsApp.png" alt="WhatsApp" loading="lazy"></a>
+    <a href="https://t.me/Baozhengng" target="_blank"><img src="https://singaporescammer.github.io/hitch/assets/Telegram.png" alt="Telegram" loading="lazy"></a>
+  </div>
+
+<script>
+// Toggle navigation for mobile
+document.querySelector('.menu-btn').addEventListener('click', function () {
+  document.getElementById('navMenu').classList.toggle('active');
+});
+
+// Smooth scroll to FAQ when link is clicked (if you later add anchor links)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  });
+});
+
+// Accordion animation for FAQ
+document.querySelectorAll('.faq-section details').forEach(detail => {
+  detail.addEventListener('toggle', function () {
+    if (this.open) {
+      this.querySelector('summary').style.color = '#33ccff';
+    } else {
+      this.querySelector('summary').style.color = '#00c8ff';
+    }
+  });
+});
+
+// Form animation on submission
+document.querySelector('form').addEventListener('submit', function () {
+  const button = this.querySelector('button');
+  button.innerHTML = 'Sending...';
+  button.disabled = true;
+  button.style.background = '#00bfff';
+  button.style.transform = 'scale(0.97)';
+});
+
+// Scroll fade-in effect
+const faders = document.querySelectorAll('.contact-container, .faq-section, .contact-container h2, form');
+
+const appearOptions = {
+  threshold: 0.1,
+  rootMargin: "0px 0px -50px 0px"
+};
+
+const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('fade-in');
+    appearOnScroll.unobserve(entry.target);
+  });
+}, appearOptions);
+
+faders.forEach(fader => {
+  appearOnScroll.observe(fader);
+});
+</script>
+
+<style>
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s ease forwards;
+}
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+
+</html>
