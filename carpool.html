@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carpool | Singapore to Malaysia Transport Services</title>
+
+  <!-- SEO Meta -->
+  <meta name="description" content="Affordable cross-border carpool services between Singapore and Malaysia. Choose your route and book easily online." />
+  <meta name="keywords" content="SG JB carpool, cross border transport, Singapore Malaysia ride, Melaka Genting transport" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://singaporescammer.github.io/hitch/carpool.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Carpool | Singapore to Malaysia Transport Services" />
+  <meta property="og:description" content="Affordable cross-border carpool services between Singapore and Malaysia. Choose your route and book easily online." />
+  <meta property="og:url" content="https://singaporescammer.github.io/hitch/carpool.html" />
+  <meta property="og:image" content="https://singaporescammer.github.io/hitch/assets/Carpool1.png" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Carpool | Singapore to Malaysia Transport Services" />
+  <meta name="twitter:description" content="Affordable cross-border carpool services between Singapore and Malaysia." />
+  <meta name="twitter:image" content="https://singaporescammer.github.io/hitch/assets/Carpool1.png" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="https://singaporescammer.github.io/hitch/assets/favicon.ico" type="image/x-icon" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https:/carpoolsgjb.github.io/hitch/assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https:/carpoolsgjb.github.io/hitch/assets/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="https://singaporescammer.github.io/hitch/assets/apple-touch-icon.png" />
+  <link rel="manifest" href="https://singaporescammer.github.io/hitch/assets/site.webmanifest" />
+
+  <!-- Fonts & Bootstrap -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at top left, #0a0f1a, #1a273a, #243b55);
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://singaporescammer.github.io/hitch/assets/singasavor.png');
+  opacity: 0.05;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+h2 {
+  color: #00d9ff;
+  text-shadow: 0 0 12px #00d9ff, 0 0 24px rgba(0, 170, 255, 0.7);
+  font-weight: 700;
+  letter-spacing: 1px;
+  animation: glow-text 1.5s infinite alternate;
+}
+
+@keyframes glow-text {
+  0% { text-shadow: 0 0 10px #00aaff; }
+  100% { text-shadow: 0 0 20px #00ffff; }
+}
+
+.service-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background: linear-gradient(145deg, #1f2a3a, #2c3e50);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  min-height: 120px;
+  position: relative;
+  border: 1px solid #00ffff44;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.15);
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 75%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: skewX(-25deg);
+  transition: 0.5s;
+}
+
+.service-card:hover::before {
+  left: 100%;
+}
+
+.service-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+}
+
+.service-details {
+  flex: 1 1 200px;
+}
+
+.service-img {
+  max-width: 100%;
+  width: 90px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.25), 0 0 20px rgba(0, 170, 255, 0.4);
+  margin-left: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover .service-img {
+  transform: rotate(5deg) scale(1.1);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+}
+
+.service-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #ffdd00;
+  text-shadow: 0 0 10px rgba(255, 221, 0, 0.8);
+}
+
+.service-description {
+  font-size: 1rem;
+  color: #e0e0e0;
+  transition: color 0.3s ease-in-out;
+}
+
+.service-card:hover .service-description {
+  color: #ffffff;
+}
+
+.price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #00ff88;
+  text-shadow: 0 0 8px rgba(0, 255, 136, 0.8);
+}
+
+.passenger-control {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.passenger-count {
+  font-size: 1rem;
+  margin: 0 10px;
+  min-width: 35px;
+  text-align: center;
+  color: #f0f0f0;
+  font-weight: bold;
+  pointer-events: none;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.btn-small {
+  background: linear-gradient(145deg, #4caf50, #2e7d32);
+  border: none;
+  color: #fff;
+  font-size: 1.1rem;
+  width: 36px;
+  height: 36px;
+  text-align: center;
+  line-height: 36px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.btn-small:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 15px rgba(76, 175, 80, 0.8);
+  border: 2px solid #00ff00;
+}
+
+.btn-small:focus {
+  outline: 2px dashed #00ffcc;
+  outline-offset: 2px;
+}
+
+.total {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #00aaff;
+  text-shadow: 0 0 15px rgba(0, 170, 255, 0.8);
+  margin-top: 25px;
+  text-align: center;
+  animation: pulse-glow 2s infinite alternate;
+}
+
+@keyframes pulse-glow {
+  0% { text-shadow: 0 0 10px rgba(0, 170, 255, 0.7); }
+  100% { text-shadow: 0 0 20px rgba(0, 255, 255, 0.9); }
+}
+
+.loading-indicator {
+  display: none;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.navbar {
+  background: linear-gradient(135deg, #10253f, #183d5d);
+  color: white;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 191, 255, 0.1);
+}
+
+.navbar-toggler {
+  border: none;
+  background: transparent;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.menu-btn {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: white;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: #00bfff;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: #33ccff;
+}
+
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #10253f;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    box-shadow: 0 6px 16px rgba(0,191,255,0.2);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin-bottom: 1rem;
+  }
+}
+  </style>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="https://singaporescammer.github.io/hitch/assets/singasavor.png" alt="Singxsavor Logo" style="height:32px;">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="carpool.html">Carpool Booking</a></li>
+        <li class="nav-item"><a class="nav-link" href="monthly-pass.html">Monthly Pass</a></li>
+        <li class="nav-item"><a class="nav-link" href="private-bus.html">Private Bus Hire</a></li>
+        <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container my-4">
+  <h2 class="text-center mb-4">For all travelers commuting between Singapore and Malaysia</h2>
+  <div id="service-list"></div>
+  <div class="total" id="totalPrice">Total: $15.00</div>
+  <button id="nextPageBtn" class="btn btn-primary btn-lg mt-4 d-block mx-auto">Next Page</button>
+</div>
+
+<div id="loadingIndicator" class="loading-indicator">
+  <img src="loading.gif" alt="Loading..." />
+</div>
+
+<script>
+  let selectedPrice = 15;
+  let passengerCount = 1;
+
+  const services = [
+    { title: "Singapore - Johor", description: "Hassle-free travel.", price: 15, img: "https://singaporescammer.github.io/hitch/assets/jb.png" },
+    { title: "Singapore - Melaka", description: "Comfortable journey.", price: 20, img: "https://singaporescammer.github.io/hitch/assets/malacca.png" },
+    { title: "Singapore - Kuala Lumpur", description: "Stylish travel.", price: 25, img: "https://singaporescammer.github.io/hitch/assets/kl.png" },
+    { title: "Singapore - Genting", description: "Comfortable to Genting.", price: 30, img: "https://singaporescammer.github.io/hitch/assets/genting.png" }
+  ];
+
+  const serviceList = document.getElementById('service-list');
+
+  services.forEach((service, index) => {
+    const card = document.createElement('div');
+    card.className = 'service-card' + (index === 0 ? ' selected' : '');
+    card.innerHTML = `
+      <div class="service-details">
+        <div class="service-title">${service.title}</div>
+        <div class="service-description">${service.description}</div>
+        <div class="price">$${service.price.toFixed(2)}</div>
+        <div class="passenger-control">
+          <button class="btn-small decrement">-</button>
+          <span class="passenger-count">1</span>
+          <button class="btn-small increment">+</button>
+        </div>
+      </div>
+      <img src="${service.img}" alt="${service.title}" class="service-img">
+    `;
+    card.addEventListener('click', () => {
+      document.querySelectorAll('.service-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      selectedPrice = service.price;
+      passengerCount = 1;
+      card.querySelector('.passenger-count').textContent = passengerCount;
+      updateTotal();
+    });
+
+    card.querySelector('.decrement').addEventListener('click', (e) => {
+      e.stopPropagation();
+      passengerCount = Math.max(1, passengerCount - 1);
+      card.querySelector('.passenger-count').textContent = passengerCount;
+      updateTotal();
+    });
+
+    card.querySelector('.increment').addEventListener('click', (e) => {
+      e.stopPropagation();
+      passengerCount += 1;
+      card.querySelector('.passenger-count').textContent = passengerCount;
+      updateTotal();
+    });
+
+    serviceList.appendChild(card);
+  });
+
+  function updateTotal() {
+    document.getElementById('totalPrice').textContent = `Total: $${(selectedPrice * passengerCount).toFixed(2)}`;
+  }
+
+  function redirectToNextPage() {
+    try {
+      const totalAmount = (selectedPrice * passengerCount).toFixed(2);
+      showLoading();
+      window.location.href = `https://singaporescammer.github.io/hitch/transport2.html?F12_Amount=${totalAmount}`;
+    } catch (error) {
+      console.error("Redirection failed:", error);
+      alert("Something went wrong. Please try again.");
+    }
+  }
+
+  function showLoading() {
+    document.getElementById("loadingIndicator").style.display = "block";
+  }
+
+  function hideLoading() {
+    document.getElementById("loadingIndicator").style.display = "none";
+  }
+
+  document.getElementById('nextPageBtn').addEventListener('click', redirectToNextPage);
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
