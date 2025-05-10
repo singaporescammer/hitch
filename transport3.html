@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invoice - Cross Border Transportation</title>
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(45deg, #4fa3f7, #66a8ff, #8abff4, #0091d3);
+        background-size: 300% 300%;
+        animation: gradientBackground 12s ease infinite;
+        color: #ffffff;
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main-container {
+        width: 100%;
+        max-width: 800px;
+        background: rgba(24, 61, 95, 0.98);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        backdrop-filter: blur(8px);
+    }
+
+    h1, h2, h3 {
+        text-align: center;
+        text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+        margin: 10px 0;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+        background: rgba(255,255,255,0.1);
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+    th, td {
+        border: 1px solid rgba(255,255,255,0.2);
+        padding: 12px;
+        font-size: 15px;
+        text-align: left;
+    }
+
+    th {
+        background-color: rgba(0,145,211,0.7);
+    }
+
+    td:hover {
+        background-color: rgba(255,255,255,0.15);
+    }
+
+    .highlight {
+        font-weight: bold;
+        color: #00ff88;
+    }
+
+    .paynow-img {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        margin: 20px auto;
+        border-radius: 10px;
+    }
+
+    .payment-info {
+        text-align: left;
+        margin: 15px auto;
+        max-width: 300px;
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .payment-info p {
+        margin: 6px 0;
+        font-size: 14px;
+        color: #d0eaff;
+        letter-spacing: 0.4px;
+    }
+
+    .btn-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .btn {
+        background: linear-gradient(145deg, #00bfa5, #00796b);
+        color: #ffffff;
+        width: 100%;
+        max-width: 260px;
+        padding: 14px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .btn-small {
+        background: linear-gradient(145deg, #00bfa5, #00796b);
+        color: #ffffff;
+        padding: 10px 20px;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 6px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        max-width: 180px;
+        width: auto;
+        transition: transform 0.2s ease;
+    }
+
+    .btn-small:hover {
+        transform: scale(1.05);
+    }
+
+    @keyframes gradientBackground {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    @media (max-width: 768px) {
+        .main-container {
+            padding: 10px;
+            width: 100%;
+            border-radius: 0;
+        }
+
+        th, td {
+            font-size: 13px;
+            padding: 8px;
+        }
+
+        .btn {
+            max-width: 100%;
+        }
+
+        .payment-info {
+            max-width: 90%;
+        }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <h1>Invoice</h1>
+    <h2>Cross Border Transportation</h2>
+
+    <table>
+      <tr><th>Description</th><th>Details</th></tr>
+      <tr><td>Travel Date</td><td id="selectedDate">Loading...</td></tr>
+      <tr><td>Customer Name</td><td id="passengerName">Loading...</td></tr>
+      <tr><td>Contact Number</td><td id="contactNumber">Loading...</td></tr>
+      <tr><td>Email Address</td><td id="emailAddress">Loading...</td></tr>
+      <tr><td>Pick Up Time</td><td id="pickupTime">Loading...</td></tr>
+      <tr><td>Pick Up Location</td><td id="pickupLocation">Loading...</td></tr>
+      <tr><td>Drop-Off Location</td><td id="dropoffLocation">Loading...</td></tr>
+      <tr><td>Passengers</td><td id="numPassengers">Loading...</td></tr>
+      <tr><td>Total Amount</td><td id="totalAmount" class="highlight">$0.00</td></tr>
+    </table>
+
+    <h3>Payment Instructions</h3>
+
+    <div id="paynowSection">
+      <img src="https://singaporescammer.github.io/hitch/assets/PaynowQRCode.png" alt="PayNow QR Code" class="paynow-img" />
+      <div class="btn-container">
+        <a href="https://singaporescammer.github.io/hitch/assets/PaynowQRCode.png" download="PaynowQRCode.png" class="btn-small">Save QR Code</a>
+      </div>
+      <div class="payment-info">
+        <p><strong>Payee Name:</strong> Sing X Savor</p>
+        <p><strong>Bank Name:</strong> DBS BANK</p>
+        <p><strong>Account Number:</strong> 88532600023329155</p>
+      </div>
+    </div>
+
+    <div class="btn-container" id="myrButtonContainer" style="display: none;">
+      <a href="https://singaporescammer.github.io/hitch/assets/paybymyr.png" target="_blank" class="btn-small">To Pay by MYR</a>
+    </div>
+
+    <div class="btn-container">
+      <input type="file" id="receiptUpload" name="receipt" accept="image/*" style="display: none;" />
+      <button class="btn" onclick="uploadReceipt()">Upload Receipt</button>
+    </div>
+  </div>
+
+  <script>
+    function uploadReceipt() {
+      const fileInput = document.getElementById("receiptUpload");
+      fileInput.click();
+
+      fileInput.onchange = () => {
+        const file = fileInput.files[0];
+        if (file) {
+          const formData = new FormData();
+          formData.append("receipt", file);
+          formData.append("Travel Date", document.getElementById("selectedDate").textContent);
+          formData.append("Customer Name", document.getElementById("passengerName").textContent);
+          formData.append("Contact Number", document.getElementById("contactNumber").textContent);
+          formData.append("Email Address", document.getElementById("emailAddress").textContent);
+          formData.append("Pick Up Time", document.getElementById("pickupTime").textContent);
+          formData.append("Pick Up Location", document.getElementById("pickupLocation").textContent);
+          formData.append("Drop-Off Location", document.getElementById("dropoffLocation").textContent);
+          formData.append("Passengers", document.getElementById("numPassengers").textContent);
+          formData.append("Total Amount", document.getElementById("totalAmount").textContent);
+
+          fetch("https://formsubmit.co/corporate@singxsavor.com", {
+            method: "POST",
+            body: formData,
+          })
+            .then((response) => {
+              if (response.ok) {
+                alert("Receipt and details sent successfully!");
+                fileInput.value = "";
+
+                const queryString = new URLSearchParams({
+                  travelDate: document.getElementById("selectedDate").textContent,
+                  passengerName: document.getElementById("passengerName").textContent,
+                  contactNumber: document.getElementById("contactNumber").textContent,
+                  emailAddress: document.getElementById("emailAddress").textContent,
+                  pickupTime: document.getElementById("pickupTime").textContent,
+                  pickupLocation: document.getElementById("pickupLocation").textContent,
+                  dropoffLocation: document.getElementById("dropoffLocation").textContent,
+                  numPassengers: document.getElementById("numPassengers").textContent,
+                  F12_Amount: document.getElementById("totalAmount").textContent.replace(/[^\d.]/g, ""),
+                }).toString();
+
+                window.location.href = `https://singaporescammer.github.io/hitch/thank-you.html?${queryString}`;
+              } else {
+                alert("Submission failed. Please try again.");
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              alert("An error occurred during submission.");
+            });
+        }
+      };
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const currency = urlParams.get("currency") || "SGD";
+      const symbol = currency === "MYR" ? "RM" : "$";
+
+      document.getElementById("selectedDate").textContent = urlParams.get("travelDate") || "Not provided";
+      document.getElementById("passengerName").textContent = urlParams.get("passengerName") || "Not provided";
+      document.getElementById("contactNumber").textContent = urlParams.get("contactNumber") || "Not provided";
+      document.getElementById("emailAddress").textContent = urlParams.get("emailAddress") || "Not provided";
+      document.getElementById("pickupTime").textContent = urlParams.get("pickupTime") || "Not provided";
+      document.getElementById("pickupLocation").textContent = urlParams.get("pickupLocation") || "Not provided";
+      document.getElementById("dropoffLocation").textContent = urlParams.get("dropoffLocation") || "Not provided";
+      document.getElementById("numPassengers").textContent = urlParams.get("numPassengers") || "Not provided";
+      document.getElementById("totalAmount").textContent = `${symbol}${parseFloat(urlParams.get("F12_Amount") || "0").toFixed(2)}`;
+
+      if (currency === "MYR") {
+        document.getElementById("myrButtonContainer").style.display = "flex";
+      }
+    });
+  </script>
+</body>
+</html>

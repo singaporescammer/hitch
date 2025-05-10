@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passenger Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #141e30, #243b55);
+            color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .form-container {
+            width: calc(100% - 40px);
+            max-width: 700px;
+            margin: 50px auto;
+            background: linear-gradient(145deg, #1f2935, #2c3e50);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6), 0 0 8px rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #00bcd4;
+            text-shadow: 0 0 6px #00bcd4, 0 0 10px rgba(0, 188, 212, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #ffeb3b;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: none;
+            background: #334455;
+            color: #f8f9fa;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+        }
+
+        .neon-btn {
+            background: linear-gradient(145deg, #ffeb3b, #ffc107);
+            border: none;
+            color: #000;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        .neon-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 235, 59, 0.8);
+        }
+
+        .neon-border {
+            border: 3px solid transparent;
+            border-radius: 10px;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 10px rgba(255, 0, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.5); }
+            100% { box-shadow: 0 0 15px rgba(0, 255, 255, 0.7), 0 0 25px rgba(255, 0, 255, 0.7); }
+        }
+
+        .total-amount {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #00ff7f;
+            text-shadow: 0 0 10px rgba(0, 255, 127, 0.5);
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .form-container {
+                width: calc(100% - 20px);
+                margin: 20px auto;
+            }
+        }
+
+        .loading-indicator {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container neon-border">
+    <h2>Passenger Details</h2>
+
+    <form id="passengerForm">
+        <div class="form-group">
+            <label for="passengerName">Full Name</label>
+            <input type="text" id="passengerName" name="passengerName" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="contactNumber">Contact Number</label>
+            <input type="tel" id="contactNumber" name="contactNumber" placeholder="Enter your contact number" required>
+        </div>
+
+        <div class="form-group">
+            <label for="emailAddress">Email Address</label>
+            <input type="email" id="emailAddress" name="emailAddress" placeholder="Enter your email address" required>
+        </div>
+
+        <div class="form-group">
+            <label for="travelDate">Travel Date</label>
+            <input type="date" id="travelDate" name="travelDate" required>
+        </div>
+
+        <div class="form-group">
+            <label for="pickupTime">Pickup Time</label>
+            <input type="time" id="pickupTime" name="pickupTime" required>
+        </div>
+
+        <div class="form-group">
+            <label for="pickupLocation">Pick-Up Location</label>
+            <input type="text" id="pickupLocation" name="pickupLocation" placeholder="Enter pick-up location" required>
+        </div>
+
+        <div class="form-group">
+            <label for="dropoffLocation">Drop-Off Location</label>
+            <input type="text" id="dropoffLocation" name="dropoffLocation" placeholder="Enter drop-off location" required>
+        </div>
+
+        <div class="form-group">
+            <label for="numPassengers">Number of Passengers</label>
+            <input type="number" id="numPassengers" name="numPassengers" min="1" value="1" required>
+        </div>
+
+        <div class="total-amount">Total Amount: <span id="totalAmount">Loading...</span></div>
+
+        <button type="submit" class="neon-btn">Proceed to Payment</button>
+    </form>
+</div>
+
+<div id="loadingIndicator" class="loading-indicator">
+    <img src="loading.gif" alt="Loading..." />
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const amount = parseFloat(urlParams.get("F12_Amount")) || 0;
+    const currency = urlParams.get("currency") || "SGD";
+    const symbol = currency === "MYR" ? "RM" : "$";
+    const selectedRoute = urlParams.get("selectedRoute") || "Not provided";
+
+    // Display total with correct currency
+    document.getElementById("totalAmount").textContent = `${symbol} ${amount.toFixed(2)}`;
+
+    // Add hidden input for route
+    const routeInput = document.createElement("input");
+    routeInput.type = "hidden";
+    routeInput.id = "selectedRoute";
+    routeInput.name = "selectedRoute";
+    routeInput.value = selectedRoute;
+    document.getElementById("passengerForm").appendChild(routeInput);
+
+    // Add hidden input for currency
+    const currencyInput = document.createElement("input");
+    currencyInput.type = "hidden";
+    currencyInput.id = "currency";
+    currencyInput.name = "currency";
+    currencyInput.value = currency;
+    document.getElementById("passengerForm").appendChild(currencyInput);
+
+    // On form submission, pass all values (including currency) to transport3.html
+    document.getElementById("passengerForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const queryString = `?travelDate=${encodeURIComponent(document.getElementById("travelDate").value)}&passengerName=${encodeURIComponent(document.getElementById("passengerName").value)}&contactNumber=${encodeURIComponent(document.getElementById("contactNumber").value)}&emailAddress=${encodeURIComponent(document.getElementById("emailAddress").value)}&pickupTime=${encodeURIComponent(document.getElementById("pickupTime").value)}&pickupLocation=${encodeURIComponent(document.getElementById("pickupLocation").value)}&dropoffLocation=${encodeURIComponent(document.getElementById("dropoffLocation").value)}&numPassengers=${encodeURIComponent(document.getElementById("numPassengers").value)}&selectedRoute=${encodeURIComponent(selectedRoute)}&F12_Amount=${encodeURIComponent(amount)}&currency=${encodeURIComponent(currency)}`;
+
+      window.location.href = "https://singaporescammer.github.io/hitch/transport3.html" + queryString;
+    });
+  });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
