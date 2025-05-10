@@ -86,12 +86,19 @@ body {
     color: var(--text-color);
     text-align: center;
     overflow-x: hidden;
+    width: 100%;
+    line-height: 1.5;
 }
 
-/* Fade-in animation for main content */
-.main-content {
+/* Avoid bootstrap container padding */
+.container.main-content {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+    width: 100vw;
     margin-top: 80px;
-    padding: 20px;
     animation: fadeIn 1s ease-in-out;
 }
 
@@ -102,15 +109,22 @@ body {
 
 /* Navbar */
 .navbar {
+    width: 100%;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     box-shadow: 0 4px 12px rgba(0, 191, 255, 0.15);
 }
 
-/* Navigation links */
+.navbar .container-fluid {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
 .nav-link {
     color: white !important;
     font-weight: 600;
     position: relative;
+    padding: 12px 15px;
+    display: inline-block;
 }
 
 .nav-link:hover {
@@ -133,7 +147,7 @@ body {
     width: 100%;
 }
 
-/* CTA buttons */
+/* CTA Buttons */
 .cta-button {
     background: linear-gradient(90deg, var(--cta-color), var(--cta-hover));
     color: white;
@@ -146,6 +160,7 @@ body {
     min-width: 160px;
     display: inline-block;
     animation: pulse 2.5s infinite;
+    margin: 10px 5px;
 }
 
 .cta-button:hover {
@@ -163,41 +178,35 @@ body {
 }
 
 @keyframes pulse {
-    0%, 100% {
-        box-shadow: 0 0 0 rgba(255, 255, 255, 0.3);
-    }
-    50% {
-        box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
-    }
+    0%, 100% { box-shadow: 0 0 0 rgba(255, 255, 255, 0.3); }
+    50% { box-shadow: 0 0 12px rgba(255, 255, 255, 0.6); }
 }
 
 /* Pricing Table */
 .pricing-table {
-    width: 100%;
-    margin: 20px auto;
-    table-layout: fixed;
-    border-collapse: separate;
-    border-spacing: 0;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    width: 100vw;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
     background-color: rgba(255, 255, 255, 0.05);
+}
+
+.pricing-table th, .pricing-table td {
+    padding: 14px 8px;
+    font-size: 15px;
+    text-align: center;
+    white-space: nowrap;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .pricing-table th {
     background: linear-gradient(90deg, var(--highlight-color), #0077cc);
     color: #ffffff;
-    padding: 12px;
-    text-align: center;
 }
 
 .pricing-table td {
     color: #ffffff;
-    padding: 12px;
-    font-size: 14px;
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.03);
 }
 
 /* Fleet Section */
@@ -207,35 +216,52 @@ body {
     gap: 20px;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    padding: 0 16px;
+    margin-bottom: 30px;
 }
 
 .fleet img {
     width: 100%;
+    max-width: 700px;
     height: auto;
     border-radius: 10px;
-    margin-bottom: 10px;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .fleet img:hover {
     transform: scale(1.03);
-    box-shadow: 0 6px 18px rgba(0, 195, 255, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 195, 255, 0.4);
 }
 
 /* FAQ Section */
 .faq {
     background: var(--faq-bg);
-    padding: 20px;
+    padding: 25px 20px;
     border-radius: 10px;
-    margin-top: 40px;
+    margin: 40px auto;
     text-align: left;
+    max-width: 900px;
     animation: fadeIn 1.2s ease-in-out;
+}
+
+.faq h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.faq-category {
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    border-bottom: 2px solid var(--highlight-color);
+    padding-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 .faq-item {
     margin-bottom: 15px;
     border-bottom: 1px solid var(--highlight-color);
-    transition: background 0.3s ease;
 }
 
 .faq-item h3 {
@@ -243,10 +269,10 @@ body {
     padding: 15px;
     background: #0e223a;
     border-radius: 5px;
+    font-size: 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 16px;
 }
 
 .faq-item h3:hover {
@@ -269,27 +295,49 @@ body {
     opacity: 0;
     overflow: hidden;
     transition: all 0.5s ease;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
     margin: 0;
     padding: 0;
 }
 
 .faq-item.active p {
-    max-height: 1000px;
+    max-height: 500px;
     opacity: 1;
     padding: 12px;
 }
 
 /* Headings */
-h2.my-4 {
-    margin-top: 30px;
+h1, h2 {
+    margin: 10px 0;
 }
 
-/* Mobile Adjustments */
+h2.my-4 {
+    margin-top: 30px;
+    font-size: 28px;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
     .cta-button {
-        width: 100%;
+        width: 90%;
         margin-bottom: 10px;
+    }
+
+    .fleet img {
+        max-width: 100%;
+    }
+
+    .pricing-table th, .pricing-table td {
+        font-size: 13px;
+        padding: 10px 4px;
+    }
+
+    h2.my-4 {
+        font-size: 22px;
+    }
+
+    .faq {
+        padding: 20px 10px;
     }
 }
 </style>
@@ -343,7 +391,6 @@ h2.my-4 {
             <tr><td>14 – 16 km</td><td>$336</td></tr>
         </tbody>
     </table>
-
     <h2 class="my-4">Our Fleet</h2>
     <div class="fleet">
         <img src="https://singaporescammer.github.io/hitch/assets/bus2.png" alt="Mini Van - 13-seater for school transport" class="img-fluid shadow">
