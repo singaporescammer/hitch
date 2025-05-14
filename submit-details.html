@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your Details</title>
+   <style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #12263a, #0a1c2f);
+    color: #ffffff;
+  }
+
+  .form-container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 30px 20px;
+    background-color: #12263a;
+    border-radius: 0;
+    box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.05);
+  }
+
+  h1 {
+    color: #00ffd0;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 25px;
+    text-shadow: 0 0 12px rgba(0, 255, 255, 0.2);
+  }
+
+  label {
+    font-weight: 600;
+    color: #ffda75;
+    display: block;
+    margin: 14px 0 5px;
+    font-size: 14px;
+  }
+
+  input,
+  select {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    background: #1c3a52;
+    color: #f0f8ff;
+    border: 1px solid #334455;
+    font-size: 15px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  input:focus,
+  select:focus {
+    outline: none;
+    background: #172b3d;
+    border-color: #00ffe1;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+  }
+
+  .fee-display {
+    font-size: 18px;
+    font-weight: 600;
+    color: #00ffb3;
+    text-align: center;
+    margin: 24px 0 12px;
+    text-shadow: 0 0 6px #00ffd5;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #00ffc3, #0072ff);
+    color: #001f33;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 255, 255, 0.3);
+  }
+
+  .submit-btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #00e3b8, #005ecc);
+    box-shadow: 0 8px 22px rgba(0, 255, 255, 0.4);
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 20px;
+    }
+
+    .submit-btn {
+      font-size: 15px;
+    }
+  }
+</style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Submit Your Details</h1>
+        <form id="detailsForm">
+            <label for="customerName">Full Name</label>
+            <input type="text" id="customerName" name="customerName" required>
+
+            <label for="childName">Child’s Name</label>
+            <input type="text" id="childName" name="childName" required>
+
+            <label for="contactNumber">Contact Number</label>
+            <input type="tel" id="contactNumber" name="contactNumber" required>
+
+            <label for="emailAddress">Email Address</label>
+            <input type="email" id="emailAddress" name="emailAddress" required>
+
+            <label for="travelDate">Start Date</label>
+            <input type="date" id="travelDate" name="travelDate" required>
+
+            <label for="homeAddress">Home Address</label>
+            <input type="text" id="homeAddress" name="homeAddress" required>
+
+            <label for="schoolAddress">School Address</label>
+            <input type="text" id="schoolAddress" name="schoolAddress" required>
+
+            <label for="distance">Distance Between Home & School</label>
+            <select id="distance" name="distance" required>
+                <option value="119">Up to 2 km – $119</option>
+                <option value="147">2-4 km – $147</option>
+                <option value="189">4-6 km – $189</option>
+                <option value="224">6-8 km – $224</option>
+                <option value="259">8-10 km – $259</option>
+                <option value="294">10-12 km – $294</option>
+                <option value="322">12-14 km – $322</option>
+                <option value="336">14-16 km – $336</option>
+            </select>
+
+            <label for="serviceType">Service Type</label>
+            <select id="serviceType" name="serviceType" required>
+                <option value="two-way">Private School Bus (Two Way)</option>
+                <option value="one-way">Private School Bus (One Way)</option>
+            </select>
+
+            <label for="pickupTime">Pick-Up Time (Home)</label>
+            <input type="time" id="pickupTime" name="pickupTime" required>
+
+            <label for="returnTime">Pick-Up Time (School)</label>
+            <input type="time" id="returnTime" name="returnTime" required>
+
+            <div class="fee-display">Total Monthly Fee: <span id="monthlyFee">$119</span></div>
+
+            <button type="submit" class="submit-btn">Submit Details</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("distance").addEventListener("change", updateFee);
+        document.getElementById("serviceType").addEventListener("change", updateFee);
+
+        function updateFee() {
+            let baseFee = parseFloat(document.getElementById("distance").value);
+            let serviceType = document.getElementById("serviceType").value;
+            
+            let finalFee = serviceType === "one-way" ? baseFee / 2 : baseFee;
+            document.getElementById("monthlyFee").textContent = `$${finalFee.toFixed(2)}`;
+        }
+
+        document.getElementById("detailsForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Collect form data
+            const formData = new FormData(this);
+            let queryString = "?";
+            for (let [key, value] of formData.entries()) {
+                queryString += `${encodeURIComponent(key)}=${encodeURIComponent(value)}&`;
+            }
+
+            // Append calculated fee to URL
+            const finalFee = parseFloat(document.getElementById("monthlyFee").textContent.replace("$", ""));
+            queryString += `F12_Amount=${finalFee.toFixed(2)}`;
+
+            // Redirect to the invoice page with data
+            window.location.href = "https://singaporescammer.github.io/hitch/invoice.html" + queryString;
+        });
+    </script>
+
+</body>
+</html>
